@@ -1,17 +1,17 @@
 import "./SelectImageButton.css"
 import {Button} from "./Button";
-import {useCallback, useEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
 function SelectImageButton() {
-	const inputRef = useRef(null as null|HTMLInputElement)
-	const selectedImageUrlRef = useRef(null as null|string)
+	const inputRef = useRef<HTMLInputElement>(null)
+	const selectedImageUrlRef = useRef<string>()
 	const [loading, setLoading] = useState(false)
 
-	const revokeImageUrl = useCallback(() => {
+	function revokeImageUrl() {
 		if (selectedImageUrlRef.current != null) {
 			window.URL.revokeObjectURL(selectedImageUrlRef.current)
 		}
-	}, [selectedImageUrlRef])
+	}
 
 	function openSelectImageModal() {
 		if (inputRef.current) {
@@ -29,7 +29,7 @@ function SelectImageButton() {
 		setLoading(false)
 	}
 
-	useEffect(() => revokeImageUrl, [revokeImageUrl])
+	useEffect(() => revokeImageUrl, [])
 
 	return (
 <div className={"selected-image-button"}>

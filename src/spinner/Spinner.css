@@ -8,6 +8,7 @@
   stroke: #000000AD;
   stroke-linecap: round;
   stroke-width: 3px;
+  fill: none;
   animation: dash 1.5s ease-in-out infinite;
 }
 

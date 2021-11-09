@@ -13,12 +13,12 @@ function initTimer(nowCallback: (a: number) => void) {
     }
 }
 
-function Timer() {
+function useTimer(): Date {
     const [time, setTime] = useState(0)
     useEffect(() => initTimer(now => setTime(now)), [])
-    const date = new Date(time)
-    return (<div>{date.getHours()}:{date.getMinutes()}:{date.getSeconds()}</div>)
+    return new Date(time)
 }
+
 export {
-    Timer,
+    useTimer,
 }

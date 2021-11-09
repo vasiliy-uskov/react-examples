@@ -22,7 +22,7 @@ function Button({
 	const [hover, setHovered] = useState(false)
 	return (
 <button
-	className={withMods("button", {
+	className={withMods("button", { // разворачиваем в строку 'button'|'button button_hover'|'button button_loading'
 		"hover": !loading && hover,
 		"loading": loading,
 	})}
